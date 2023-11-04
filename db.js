@@ -1,5 +1,5 @@
 const {MongoClient,ObjectId} = require("mongodb");
-const urlConexion = "mongodb+srv://Gerdoski:root@clase.fvxse9x.mongodb.net/";
+const urlConexion = process.env.URL_MONGO;
 
 
 function conectar(){
