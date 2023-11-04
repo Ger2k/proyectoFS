@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista peliculas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilo.css">
+</head>
+<body>
+    <form action="/nueva" method="POST">
+        <input name="titulo" type="text" placeholder="Título">
+        <input type="submit" value="Añadir película">
+    </form>
+    
+    <main class="peliculas">
+
+        <section class="encabezado">
+            <h1>Lista de películas</h1>            
+        </section>
+
+        <div class="listaPeliculas">
+            
+        </div>
+
+
+    <script src="/js/ajax.js"></script>
+    <script src="/js/pelicula.js"></script>
+    <script src="/js/funciones.js"></script>
+</body>
+</html>

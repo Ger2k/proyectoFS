@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PRUEBAS API</h1>
+
+    <ul></ul>
+
+    <script>
+
+    const lista = document.querySelector("ul");
+    /*
+    fetch("/lista")
+    .then(respuesta => respuesta.json())
+    .then(peliculas => {
+        console.log(peliculas);
+        peliculas.forEach(({titulo,_id}) => {
+            let item = document.createElement("li");
+            item.innerHTML = [titulo];
+            lista.appendChild(item);
+        });
+    });*/
+
+    fetch("/editar/65424fdb1a9b201a00a26044/0",{
+        method : "PUT",
+        body : JSON.stringify({ titulo : "Pinocho 2"}),
+        headers : {
+            "Content-type" : "application/json"
+        }
+    })
+    .then(respuesta => respuesta.text())
+    .then(respuesta => console.log(respuesta))
+
+    </script>
+</body>
+</html>
