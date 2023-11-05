@@ -9,6 +9,7 @@ ajax("/lista").then(peliculas => {
 	})
 });
 
+//VALIDACION DEL FORMULARIO ANTES DE ENVIAR
 formulario.addEventListener("submit", e => {
 	e.preventDefault();
 	if(textoTitulo.value.trim() != ""){
@@ -18,24 +19,3 @@ formulario.addEventListener("submit", e => {
 })
 
 
-
-/*
-
-formulario.addEventListener("submit", evento => {
-	evento.preventDefault();
-
-	if(textoTitulo.value.trim() != ""){
-		//HACEMOS LLAMADA A AJAX, si todo sale bien:
-		return ajax("/nueva","POST",{ titulo : textoTitulo.value.trim()})
-		.then(({resultado,id}) => {
-			if(resultado == "ok"){
-				new Pelicula(id, textoTitulo.value.trim(), false, contenedor);
-				return textoTitulo.value = "";
-			}
-			console.log("Error al usuario");
-		});
-		
-	}
-	console.log("Error al usuario");
-});
-*/

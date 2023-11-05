@@ -1,10 +1,17 @@
+// Importación de las bibliotecas necesarias para interactuar con MongoDB
+
 const {MongoClient,ObjectId} = require("mongodb");
 const urlConexion = process.env.URL_MONGO;
 
 
+// Función para crear una instancia del cliente de MongoDB y conectar a la base de datos
+
 function conectar(){
     return new MongoClient(urlConexion);
 }
+
+
+// Función para leer todas las películas en la colección "peliculas"
 
 function leerPeliculas(){
     return new Promise(async callback => {
@@ -18,6 +25,9 @@ function leerPeliculas(){
         callback(peliculas);
     })
 }
+
+
+// Función para agregar una nueva película a la colección "peliculas"
 
 function nuevaPelicula(titulo){
     return new Promise(async callback => {
@@ -39,6 +49,9 @@ function nuevaPelicula(titulo){
     })
 }
 
+
+// Función para borrar una película por su ID
+
 function borrar(id){
     return new Promise(async callback => {
         
@@ -57,6 +70,9 @@ function borrar(id){
         callback(resultado)
     }) 
 }
+
+
+// Función para editar el estado (terminada o no) de una película por su ID
 
 function editarEstado(id){
     return new Promise(async callback => {
@@ -82,6 +98,9 @@ function editarEstado(id){
     }) 
 }
 
+
+// Función para editar el título de una película por su ID
+
 function editarTitulo(id,nuevoTitulo){
     return new Promise(async callback => {
         let conexion = await conectar();
@@ -102,10 +121,7 @@ function editarTitulo(id,nuevoTitulo){
         callback(resultado)
     }) 
 }
-module.exports = {nuevaPelicula,borrar,leerPeliculas,editarEstado,editarTitulo}
 
-//nuevaPelicula("Terminator").then(resultado => console.log(resultado))
-//leerPeliculas().then(resultado => console.log(resultado))
-//borrar("6542508d82bd91e49d91b27a").then(resultado => console.log(resultado))
-//editarEstado("654249936a4c1322f4968aac").then(resultado => console.log(resultado))
-//editarTitulo("654249936a4c1322f4968aac","Matrix nueva").then(resultado => console.log(resultado))
+// Exportar las funciones que se utilizarán en otros archivos
+
+module.exports = {nuevaPelicula,borrar,leerPeliculas,editarEstado,editarTitulo}

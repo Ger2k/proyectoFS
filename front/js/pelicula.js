@@ -9,38 +9,40 @@ class Pelicula{
         this.elementoDOM = document.createElement("div");
         this.elementoDOM.classList.add("pelicula");
 
-        //titulo
-
+       
+		// Crear elemento para el título de la película
         let titulo = document.createElement("h3");
 		titulo.classList.add("visible");
 		titulo.innerHTML = this.titulo;
 
-        //edit titulo
-
+        
+		// Crear campo de edición para el título
         let editorTitulo = document.createElement("input");
 		editorTitulo.setAttribute("type","text");
 		editorTitulo.value = this.titulo;
 
-        //boton editar
-
+        
+		// Crear botón para editar el título
         let botonEditar = document.createElement("button");
 		botonEditar.classList.add("boton");
 		botonEditar.innerHTML = "Editar";
 
+		// Agregar evento para editar el título al hacer clic en el botón
 		botonEditar.addEventListener("click", () => this.editarTitulo());
 
 
-        //boton borrar
-
+        
+		// Crear botón para borrar la película
         let botonBorrar = document.createElement("button");
 		botonBorrar.classList.add("boton","borrar");
 		botonBorrar.innerHTML = "Borrar";
 
+		// Agregar evento para borrar la película al hacer clic en el botón
 		botonBorrar.addEventListener("click", () => this.borrarTitulo());
 
 
-        //boton estado
-
+        
+		// Crear botón para cambiar el estado de la película (vista/no vista)
         let botonEstado = document.createElement("button");
 		botonEstado.className = `estado ${estado == "1" ? "terminada" : ""}`;
         botonEstado.classList.add("boton","vista");
@@ -48,7 +50,7 @@ class Pelicula{
 		
 		
 		
-
+		// Agregar evento para cambiar el estado al hacer clic en el botón
 		botonEstado.addEventListener("click", () => {
 			this.editarEstado().then(({resultado}) => {
 				if(resultado == "ok"){
@@ -58,35 +60,33 @@ class Pelicula{
 			})
 		});
 
-        //agregar elementos al DOM
-
+        // Agregar elementos al DOM
         this.elementoDOM.appendChild(titulo);
 		this.elementoDOM.appendChild(editorTitulo);
         this.elementoDOM.appendChild(botonEstado);
 		this.elementoDOM.appendChild(botonEditar);
-		this.elementoDOM.appendChild(botonBorrar);
-		
+		this.elementoDOM.appendChild(botonBorrar);		
 
         contenedor.appendChild(this.elementoDOM);
     }
     async editarTitulo(){
 		if(this.editando){
-			//guardar
+			// Guardar el título editado
 			let tituloTemporal = this.elementoDOM.children[1].value.trim();
 			if(tituloTemporal != "" && tituloTemporal != this.textoTitulo){
-				//HACEMOS LLAMADA A AJAX... si sale bien:
 				let {resultado} = await ajax(`/editar/${this.id}/1`,"PUT",{ titulo : tituloTemporal})
 				if(resultado == "ok"){
 					this.textoTitulo = tituloTemporal;
 				}				
 			}
+			// Actualizar la representación del título en el DOM
 			this.elementoDOM.children[0].innerHTML = this.textoTitulo;
 			this.elementoDOM.children[0].classList.add("visible");
 			this.elementoDOM.children[1].classList.remove("visible");
 			this.elementoDOM.children[3].innerHTML = "Editar";
 
 		}else{
-			//editar
+			// Habilitar la edición del título
 			this.elementoDOM.children[0].classList.remove("visible");
 			this.elementoDOM.children[0].value = this.textoTitulo;
 			this.elementoDOM.children[1].classList.add("visible");
@@ -94,14 +94,18 @@ class Pelicula{
 		}
 		this.editando = !this.editando;
 	}
+	
 	async borrarTitulo(){
+		// Realizar una llamada a AJAX para eliminar la película en el servidor
 		let {error} = await ajax(`/borrar/${this.id}`,"DELETE");
 		if(!error){
+			// Eliminar la representación de la película del DOM
 			return this.elementoDOM.remove();
 		}
 		console.log("no se pudo borrar");
 	}
 	editarEstado(){
+		// Realizar una llamada a AJAX para cambiar el estado de la película en el servidor
 		return ajax(`/editar/${this.id}/0`,"PUT")
 	}
 }

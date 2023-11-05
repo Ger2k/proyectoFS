@@ -1,3 +1,5 @@
+//ESTA FUNCION GESTIONA TODAS LAS LLAMADAS A AJAX
+
 function ajax(url,metodo,datos){
     const configuracion = !metodo ? null : {
         method : metodo
