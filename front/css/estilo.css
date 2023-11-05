@@ -155,4 +155,7 @@ form input[type="submit"]:hover{
 	.pelicula .boton{
 		width: 70px;
 	}
+	.peliculas{
+		width: 80%;
+	}
 }
