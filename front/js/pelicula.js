@@ -10,8 +10,8 @@ class Pelicula{
 			this.posterURL = data.Poster;			
 		});
     }
-	async getPosterURL(){
-		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
+	getPosterURL(){
+		fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.titulo}`)
 		.then(res => res.json())
 		.then(data => () => {
 			this.posterURL = data.Poster;
