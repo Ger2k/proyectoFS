@@ -3,21 +3,21 @@ class Pelicula{
         this.id = id;
         this.titulo = titulo;
         this.elementoDOM = null;
-        this.nuevaPelicula(estado,contenedor);
 		this.posterURL = fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
 		.then(res => res.json())
 		.then(data => () => {
 			this.posterURL = data.Poster;			
 		});
+		this.nuevaPelicula(estado,contenedor,posterURL);
     }
-	async getPosterURL(){
+	/*async getPosterURL(){
 		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.titulo}`)
 		.then(res => res.json())
 		.then(data => () => {
 			this.posterURL = data.Poster;
 			console.log(this.posterURL);
 		})
-	}
+	}*/
     nuevaPelicula(estado,contenedor){
         this.elementoDOM = document.createElement("div");
         this.elementoDOM.classList.add("pelicula");
