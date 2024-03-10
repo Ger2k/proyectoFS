@@ -6,7 +6,7 @@ const textoTitulo = document.querySelector("form input:first-child");
 ajax("/lista").then(peliculas => {
 	peliculas.forEach(({_id,titulo,terminada}) => {
 		
-		new Pelicula(_id,titulo,terminada,contenedor,posterURL);
+		new Pelicula(_id,titulo,terminada,contenedor);
 	})
 });
 
