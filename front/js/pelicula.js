@@ -111,11 +111,12 @@ class Pelicula{
 		}
 		console.log("no se pudo borrar");
 	}
-	getPosterURL(){
-		fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
+	async getPosterURL(){
+		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
 		.then(res => res.json())
 		.then(data => data.Poster)
 		this.posterURL = data.Poster;
+		console.log(this.posterURL);
 	}
 	editarEstado(){
 		// Realizar una llamada a AJAX para cambiar el estado de la película en el servidor
