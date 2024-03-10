@@ -4,7 +4,7 @@ class Pelicula{
         this.titulo = titulo;
         this.elementoDOM = null;
 		this.cargarPosterYCrearPelicula(estado, contenedor);
-		this.nuevaPelicula(estado,contenedor,posterURL);
+		this.nuevaPelicula(estado,contenedor);
     }
 	async cargarPosterYCrearPelicula(estado, contenedor) {
         try {
