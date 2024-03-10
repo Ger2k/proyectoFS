@@ -6,6 +6,14 @@ class Pelicula{
         this.nuevaPelicula(estado,contenedor);
 		this.posterURL = posterURL;
     }
+	async getPosterURL(){
+		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
+		.then(res => res.json())
+		.then(data => () => {
+			this.posterURL = data.Poster;
+			console.log(this.posterURL);
+		})
+	}
     nuevaPelicula(estado,contenedor){
         this.elementoDOM = document.createElement("div");
         this.elementoDOM.classList.add("pelicula");
@@ -112,14 +120,7 @@ class Pelicula{
 		}
 		console.log("no se pudo borrar");
 	}
-	async getPosterURL(){
-		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
-		.then(res => res.json())
-		.then(data => () => {
-			this.posterURL = data.Poster;
-			console.log(this.posterURL);
-		})
-	}
+	
 	editarEstado(){
 		// Realizar una llamada a AJAX para cambiar el estado de la película en el servidor
 		return ajax(`/editar/${this.id}/0`,"PUT")
