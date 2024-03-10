@@ -4,8 +4,8 @@ const textoTitulo = document.querySelector("form input:first-child");
 
 //CARGA INICIAL
 ajax("/lista").then(peliculas => {
-	peliculas.forEach(({_id,titulo,terminada}) => {
-		new Pelicula(_id,titulo,terminada,contenedor);
+	peliculas.forEach(({_id,titulo,terminada,posterURL}) => {
+		new Pelicula(_id,titulo,terminada,contenedor,posterURL);
 	})
 });
 

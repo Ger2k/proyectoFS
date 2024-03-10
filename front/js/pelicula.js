@@ -1,9 +1,10 @@
 class Pelicula{
-    constructor(id,titulo,estado,contenedor){
+    constructor(id,titulo,estado,contenedor,posterURL){
         this.id = id;
         this.titulo = titulo;
         this.elementoDOM = null;
-        this.nuevaPelicula(estado,contenedor)
+        this.nuevaPelicula(estado,contenedor);
+		this.posterURL = posterURL;
     }
     nuevaPelicula(estado,contenedor){
         this.elementoDOM = document.createElement("div");
@@ -14,6 +15,11 @@ class Pelicula{
         let titulo = document.createElement("h3");
 		titulo.classList.add("visible");
 		titulo.innerHTML = this.titulo;
+
+		// Crear elemento para el título de la película
+        let poster = document.createElement("img");
+		poster.classList.add("poster");
+		poster.src = posterURL;
 
         
 		// Crear campo de edición para el título
@@ -61,6 +67,7 @@ class Pelicula{
 		});
 
         // Agregar elementos al DOM
+		this.elementoDOM.appendChild(poster);
         this.elementoDOM.appendChild(titulo);
 		this.elementoDOM.appendChild(editorTitulo);
         this.elementoDOM.appendChild(botonEstado);
@@ -103,6 +110,12 @@ class Pelicula{
 			return this.elementoDOM.remove();
 		}
 		console.log("no se pudo borrar");
+	}
+	getPosterURL(){
+		fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
+		.then(res => res.json())
+		.then(data => data.Poster)
+		this.posterURL = data.Poster;
 	}
 	editarEstado(){
 		// Realizar una llamada a AJAX para cambiar el estado de la película en el servidor

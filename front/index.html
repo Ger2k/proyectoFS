@@ -8,28 +8,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+    <div class="fondo-pantalla">
+        <div class="patron-lineas">
+          <div class="gradiente-negro"></div>
+        </div>
+      </div>
     <form action="/nueva" method="POST">
         <input name="titulo" type="text" placeholder="Título">
         <input type="submit" value="Añadir película">
     </form>
-    <h1>ESTO FUNCIONA</h1>
     
+					
     <main class="peliculas">
 
         <section class="encabezado">
-            <h1>Lista de películas</h1>            
+            <h1>Lista de películas</h1>          
         </section>
 
         <div class="listaPeliculas">
+           <div class="pelicula">
+               <img class="poster" src="https://static.posters.cz/image/1300/posters/avengers-endgame-journey-s-end-i122136.jpg" alt="">
+               <div class="infoCarta">
+                   <h3 class="visible">Avengers</h3>
+                   <input type="text">
+                   <button class="boton">Editar</button>
+                   <button class="estado terminada boton vista"><span></span>Vista</button>
+                   <button class="boton borrar">Borrar</button>
+                </div>
+		    </div>
             
         </div>
 
 
-    <script src="/js/ajax.js"></script>
-    <script src="/js/pelicula.js"></script>
-    <script src="/js/funciones.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/pelicula.js"></script>
+    <script src="js/funciones.js"></script>
 </body>
 </html>
