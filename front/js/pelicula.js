@@ -19,7 +19,7 @@ class Pelicula{
 		// Crear elemento para el título de la película
         let poster = document.createElement("img");
 		poster.classList.add("poster");
-		poster.src = this.posterURL;
+		poster.set = this.posterURL;
 
         
 		// Crear campo de edición para el título
@@ -112,11 +112,12 @@ class Pelicula{
 		console.log("no se pudo borrar");
 	}
 	async getPosterURL(){
-		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
+		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=Terminator`)
 		.then(res => res.json())
-		.then(data => data.Poster)
-		this.posterURL = data.Poster;
-		console.log(this.posterURL);
+		.then(data => () => {
+			this.posterURL = data.Poster;
+			console.log(this.posterURL);
+		})
 	}
 	editarEstado(){
 		// Realizar una llamada a AJAX para cambiar el estado de la película en el servidor
