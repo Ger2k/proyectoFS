@@ -3,21 +3,24 @@ class Pelicula{
         this.id = id;
         this.titulo = titulo;
         this.elementoDOM = null;
-		this.posterURL = fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
-		.then(res => res.json())
-		.then(data => () => {
-			this.posterURL = data.Poster;			
-		});
+		this.cargarPosterYCrearPelicula(estado, contenedor);
 		this.nuevaPelicula(estado,contenedor,posterURL);
     }
-	/*async getPosterURL(){
-		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.titulo}`)
-		.then(res => res.json())
-		.then(data => () => {
-			this.posterURL = data.Poster;
-			console.log(this.posterURL);
-		})
-	}*/
+	async cargarPosterYCrearPelicula(estado, contenedor) {
+        try {
+            const response = await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${encodeURIComponent(this.titulo)}`);
+            const data = await response.json();
+            if (data.Search && data.Search.length > 0) {
+                this.posterURL = data.Search[0].Poster; // Asumiendo que queremos el primer resultado
+            } else {
+                this.posterURL = ''; // O alguna URL de imagen por defecto
+            }
+            this.nuevaPelicula(estado, contenedor, this.posterURL); // Asegúrate de que nuevaPelicula maneje correctamente el parámetro posterURL
+        } catch (error) {
+            console.error("Error cargando el póster: ", error);
+            // Manejar el error adecuadamente
+        }
+    }
     nuevaPelicula(estado,contenedor){
         this.elementoDOM = document.createElement("div");
         this.elementoDOM.classList.add("pelicula");
