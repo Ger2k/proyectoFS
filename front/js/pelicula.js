@@ -112,7 +112,7 @@ class Pelicula{
 		console.log("no se pudo borrar");
 	}
 	async getPosterURL(){
-		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=Terminator`)
+		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
 		.then(res => res.json())
 		.then(data => () => {
 			this.posterURL = data.Poster;
