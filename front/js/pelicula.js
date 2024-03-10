@@ -1,5 +1,5 @@
 class Pelicula{
-    constructor(id,titulo,estado,contenedor,posterURL){
+    constructor(id,titulo,estado,contenedor){
         this.id = id;
         this.titulo = titulo;
         this.elementoDOM = null;
