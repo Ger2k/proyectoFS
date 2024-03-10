@@ -4,7 +4,11 @@ class Pelicula{
         this.titulo = titulo;
         this.elementoDOM = null;
         this.nuevaPelicula(estado,contenedor);
-		this.posterURL = posterURL;
+		this.posterURL = fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
+		.then(res => res.json())
+		.then(data => () => {
+			this.posterURL = data.Poster;			
+		});
     }
 	async getPosterURL(){
 		await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${this.textoTitulo}`)
