@@ -19,7 +19,7 @@ class Pelicula{
 		// Crear elemento para el título de la película
         let poster = document.createElement("img");
 		poster.classList.add("poster");
-		poster.src = posterURL;
+		poster.src = this.posterURL;
 
         
 		// Crear campo de edición para el título
