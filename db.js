@@ -1,8 +1,7 @@
 // Importación de las bibliotecas necesarias para interactuar con MongoDB
 
 const {MongoClient,ObjectId} = require("mongodb");
-//const urlConexion = process.env.URL_MONGO;
-const urlConexion = "mongodb+srv://Gerdoski:root@clase.fvxse9x.mongodb.net/";
+const urlConexion = process.env.URL_MONGO;
 
 
 // Función para crear una instancia del cliente de MongoDB y conectar a la base de datos
