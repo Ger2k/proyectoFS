@@ -103,17 +103,17 @@ class Pelicula{
 				}				
 			}
 			// Actualizar la representación del título en el DOM
-			this.elementoDOM.children[0].innerHTML = this.textoTitulo;
-			this.elementoDOM.children[0].classList.add("visible");
-			this.elementoDOM.children[1].classList.remove("visible");
-			this.elementoDOM.children[3].innerHTML = "Editar";
+			this.elementoDOM.children[1].innerHTML = this.textoTitulo;
+			this.elementoDOM.children[1].classList.add("visible");
+			this.elementoDOM.children[2].classList.remove("visible");
+			this.elementoDOM.children[4].innerHTML = "Editar";
 
 		}else{
 			// Habilitar la edición del título
-			this.elementoDOM.children[0].classList.remove("visible");
-			this.elementoDOM.children[0].value = this.textoTitulo;
-			this.elementoDOM.children[1].classList.add("visible");
-			this.elementoDOM.children[3].innerHTML = "Guardar";
+			this.elementoDOM.children[1].classList.remove("visible");
+			this.elementoDOM.children[1].value = this.textoTitulo;
+			this.elementoDOM.children[2].classList.add("visible");
+			this.elementoDOM.children[4].innerHTML = "Guardar";
 		}
 		this.editando = !this.editando;
 	}

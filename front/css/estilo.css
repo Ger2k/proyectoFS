@@ -6,6 +6,14 @@
 	/* Define los colores primarios aquí */
 	--bs-body-color-rgb: 255, 255, 255;
 }
+body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: Poppins;
+	background-color: #a66b4747;
+}
 
 .fondo-pantalla {
 	position: fixed;
@@ -33,15 +41,6 @@
 	height: 100%;
 	background-image: linear-gradient(0deg, black, transparent);
 	z-index: 0;
-}
-body{
-    display: flex;
-    flex-direction: column;
-	align-items: center;
-    justify-content: center;
-	font-family: Poppins;
-    background-color: #a66b4747;
-	width: 100vh;
 }
 input,button{
 	-webkit-appearance: none;
