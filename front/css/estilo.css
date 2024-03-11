@@ -74,7 +74,7 @@ form input[type="submit"]{
 }
 form input[type="submit"]:hover{
 	background-color: rgba(98, 49, 8, 0.56);
-	border: 1px solid #867a7a;
+	border: 1px solid #a720ab7a;
 }
 .encabezado{
 	font-family: Poppins;
