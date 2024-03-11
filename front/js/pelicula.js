@@ -1,11 +1,11 @@
 class Pelicula{
-    constructor(id,titulo,estado,contenedor){
-        this.id = id;
-        this.titulo = titulo;
-        this.elementoDOM = null;
-		this.cargarPosterYCrearPelicula(estado, contenedor);
-		this.nuevaPelicula(estado,contenedor);
-    }
+		constructor(id,titulo,estado,contenedor){
+			this.id = id;
+			this.titulo = titulo;
+			this.elementoDOM = null;
+			// Solo carga el póster y crea la película una vez que se haya obtenido la URL del póster
+			this.cargarPosterYCrearPelicula(estado, contenedor);
+		}
 	async cargarPosterYCrearPelicula(estado, contenedor) {
         try {
             const response = await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${encodeURIComponent(this.titulo)}`);
