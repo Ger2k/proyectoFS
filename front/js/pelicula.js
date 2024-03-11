@@ -12,10 +12,11 @@ class Pelicula{
             const data = await response.json();
             if (data.Search && data.Search.length > 0) {
                 this.posterURL = data.Search[0].Poster; // Asumiendo que queremos el primer resultado
+				this.movieYear = data.Search[0].Year;
             } else {
-                this.posterURL = ''; // O alguna URL de imagen por defecto
+                this.posterURL = 'https://demofree.sirv.com/nope-not-here.jpg?w=150'; // O alguna URL de imagen por defecto
             }
-            this.nuevaPelicula(estado, contenedor, this.posterURL); // Asegúrate de que nuevaPelicula maneje correctamente el parámetro posterURL
+            this.nuevaPelicula(estado, contenedor, this.posterURL,movieYear); // Asegúrate de que nuevaPelicula maneje correctamente el parámetro posterURL
         } catch (error) {
             console.error("Error cargando el póster: ", error);
             // Manejar el error adecuadamente
@@ -31,7 +32,12 @@ class Pelicula{
 		titulo.classList.add("visible");
 		titulo.innerHTML = this.titulo;
 
-		// Crear elemento para el título de la película
+		// Crear elemento para el año de la película
+        let movieYear = document.createElement("h4");
+		titulo.classList.add("movieYear visible");
+		titulo.innerHTML = this.movieYear;
+
+		// Crear elemento para el poster de la película
         let poster = document.createElement("img");
 		poster.classList.add("poster");
 		poster.src = this.posterURL;
@@ -85,6 +91,7 @@ class Pelicula{
         // Agregar elementos al DOM
 		this.elementoDOM.appendChild(poster);
         this.elementoDOM.appendChild(titulo);
+		this.elementoDOM.appendChild(movieYear);
 		this.elementoDOM.appendChild(editorTitulo);
         this.elementoDOM.appendChild(botonEstado);
 		this.elementoDOM.appendChild(botonEditar);
@@ -95,7 +102,7 @@ class Pelicula{
     async editarTitulo(){
 		if(this.editando){
 			// Guardar el título editado
-			let tituloTemporal = this.elementoDOM.children[2].value.trim();
+			let tituloTemporal = this.elementoDOM.children[3].value.trim();
 			if(tituloTemporal != "" && tituloTemporal != this.textoTitulo){
 				let {resultado} = await ajax(`/editar/${this.id}/1`,"PUT",{ titulo : tituloTemporal})
 				if(resultado == "ok"){
@@ -103,17 +110,17 @@ class Pelicula{
 				}				
 			}
 			// Actualizar la representación del título en el DOM
-			this.elementoDOM.children[1].innerHTML = this.textoTitulo;
-			this.elementoDOM.children[1].classList.add("visible");
-			this.elementoDOM.children[2].classList.remove("visible");
-			this.elementoDOM.children[4].innerHTML = "Editar";
+			this.elementoDOM.children[2].innerHTML = this.textoTitulo;
+			this.elementoDOM.children[2].classList.add("visible");
+			this.elementoDOM.children[3].classList.remove("visible");
+			this.elementoDOM.children[5].innerHTML = "Editar";
 
 		}else{
 			// Habilitar la edición del título
-			this.elementoDOM.children[1].classList.remove("visible");
-			this.elementoDOM.children[1].value = this.textoTitulo;
-			this.elementoDOM.children[2].classList.add("visible");
-			this.elementoDOM.children[4].innerHTML = "Guardar";
+			this.elementoDOM.children[2].classList.remove("visible");
+			this.elementoDOM.children[2].value = this.textoTitulo;
+			this.elementoDOM.children[3].classList.add("visible");
+			this.elementoDOM.children[5].innerHTML = "Guardar";
 		}
 		this.editando = !this.editando;
 	}
