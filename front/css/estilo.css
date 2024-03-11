@@ -76,6 +76,7 @@ form input[type="submit"]:hover{
 }
 .encabezado{
 	font-family: Poppins;
+	font-style: italic;
     margin: 20px auto 40px;
     text-align: center;
 	color: rgb(181 58 181);
@@ -139,10 +140,11 @@ form input[type="submit"]:hover{
 }
 .pelicula .visible{
 	margin-right: 60px;
-	left: 40%;
+	left: 36%;
     top: 20px;
     position: absolute;
 	display: block;
+	color: darkkhaki;
 }
 .pelicula .boton{
 	border: 1px solid #333;
