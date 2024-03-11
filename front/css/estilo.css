@@ -54,7 +54,7 @@ form{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 75%;
 }
 form input[type="text"]{
 	width: 500px;
@@ -64,11 +64,11 @@ form input[type="text"]{
 	margin-top: 20px;
 }
 form input[type="submit"]{
-	border: 1px solid #8057439e;
+	border: 1px solid #a720ab7a;
 	border-radius: 0 0 10px;
 	color: #f7f7f7;
   	background-color: rgb(59 0 59);	
-	padding: 8px 15px;
+	padding: 10px 15px;
 	margin-top: 20px;
 	cursor: pointer;
 }
