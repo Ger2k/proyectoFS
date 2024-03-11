@@ -51,7 +51,7 @@ form{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: auto;
+	margin-left: 25%;
 	width: 100%;
 }
 form input[type="text"]{
@@ -65,7 +65,7 @@ form input[type="submit"]{
 	border: 1px solid #8057439e;
 	border-radius: 0 0 10px;
 	color: #f7f7f7;
-  	background-color: rgba(147, 92, 33, 0.63);	
+  	background-color: rgb(59 0 59);	
 	padding: 8px 15px;
 	margin-top: 20px;
 	cursor: pointer;
@@ -108,7 +108,8 @@ form input[type="submit"]:hover{
 
 
 .pelicula{
-	border: 2px solid #826149;
+	border: 2px solid #5a49834a;
+	margin-left: 25%;
 	border-radius: 20px;
 	padding: 15px;
 	display: flex;	
@@ -141,12 +142,13 @@ form input[type="submit"]:hover{
 	left: 40%;
     top: 20px;
     position: absolute;
+	display: block;
 }
 .pelicula .boton{
 	border: 1px solid #333;
 	border-radius: 10px;
 	color: #333;
-	background-color: rgba(245, 245, 245, 0.562);
+	background-color: rgb(206 207 239 / 96%);
 	padding: 10px 15px;
 	margin-top: 20px;
 	cursor: pointer;
