@@ -34,8 +34,8 @@ class Pelicula{
 
 		// Crear elemento para el año de la película
         let movieYear = document.createElement("h4");
-		titulo.classList.add("movieYear visible");
-		titulo.innerHTML = this.movieYear;
+		movieYear.classList.add("movieYear visible");
+		movieYear.innerHTML = this.movieYear;
 
 		// Crear elemento para el poster de la película
         let poster = document.createElement("img");
