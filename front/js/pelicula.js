@@ -35,7 +35,7 @@ class Pelicula{
 		// Crear elemento para el año de la película
         let movieYear = document.createElement("h4");
 		movieYear.classList.add("movieYear", "visible");
-		movieYear.innerHTML = this.movieYear || "1987";
+		movieYear.innerHTML = this.movieYear || "Año no encontrado";
 
 		// Crear elemento para el poster de la película
         let poster = document.createElement("img");
@@ -102,7 +102,7 @@ class Pelicula{
     async editarTitulo(){
 		if(this.editando){
 			// Guardar el título editado
-			let tituloTemporal = this.elementoDOM.children[3].value.trim();
+			let tituloTemporal = this.elementoDOM.children[2].value.trim();
 			if(tituloTemporal != "" && tituloTemporal != this.textoTitulo){
 				let {resultado} = await ajax(`/editar/${this.id}/1`,"PUT",{ titulo : tituloTemporal})
 				if(resultado == "ok"){
