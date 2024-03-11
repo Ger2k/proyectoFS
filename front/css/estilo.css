@@ -226,6 +226,7 @@ form input[type="submit"]:hover{
 	.pelicula .visible{
 		text-align: center;
 		margin-right: 60px;
+		margin-left: 60px;
 		left: 0;
 		top: 0;
 		position: static;
