@@ -95,7 +95,7 @@ class Pelicula{
     async editarTitulo(){
 		if(this.editando){
 			// Guardar el título editado
-			let tituloTemporal = this.elementoDOM.children[1].value.trim();
+			let tituloTemporal = this.elementoDOM.children[2].value.trim();
 			if(tituloTemporal != "" && tituloTemporal != this.textoTitulo){
 				let {resultado} = await ajax(`/editar/${this.id}/1`,"PUT",{ titulo : tituloTemporal})
 				if(resultado == "ok"){
