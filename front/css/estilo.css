@@ -96,7 +96,6 @@ form input[type="submit"]:hover{
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
     border-radius: .8rem;
-	border: 2px solid #75007561;
 }
 .terminada{
     background-color: #6ff96fc2 !important;
@@ -111,7 +110,7 @@ form input[type="submit"]:hover{
 
 
 .pelicula{
-	border: 2px solid #5a49834a;
+	background: radial-gradient(149% 125% at -38% 10%, black 56%, #5f008070 90%);
 	border-radius: 20px;
 	padding: 15px;
 	display: flex;	
@@ -154,7 +153,7 @@ form input[type="submit"]:hover{
 	color: #333;
 	background-color: rgb(206 207 239 / 96%);
 	padding: 10px 15px;
-	margin-top: 20px;
+	margin-top: 128px;
 	cursor: pointer;
 	width: 117px;
 	backdrop-filter: blur(7px);
@@ -166,7 +165,6 @@ form input[type="submit"]:hover{
 }
 .borrar:hover{
 	background-color: rgba(238, 129, 129, 0.56);
-	border: 1px solid #c11919;
 }
 .vista:hover{
 	background-color: rgb(200, 247, 203);
@@ -200,6 +198,7 @@ form input[type="submit"]:hover{
 	.pelicula .boton{
 		width: -webkit-fill-available;
 		width: 75px;
+		margin-top: 20px;
 	}
 	.peliculas{
 		width: 80%;
