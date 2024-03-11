@@ -16,7 +16,7 @@ class Pelicula{
             } else {
                 this.posterURL = 'https://demofree.sirv.com/nope-not-here.jpg?w=150'; // O alguna URL de imagen por defecto
             }
-            this.nuevaPelicula(estado, contenedor, this.posterURL,movieYear); // Asegúrate de que nuevaPelicula maneje correctamente el parámetro posterURL
+            this.nuevaPelicula(estado, contenedor, this.posterURL, this.movieYear); // Asegúrate de que nuevaPelicula maneje correctamente el parámetro posterURL
         } catch (error) {
             console.error("Error cargando el póster: ", error);
             // Manejar el error adecuadamente
