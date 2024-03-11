@@ -180,11 +180,12 @@ form input[type="submit"]:hover{
 /*responsive*/
 
 
-@media (max-width: 768px) {
+@media (max-width: 568px) {
 	
 	form input[type="text"] {
 		width: 100%; 
 		height: 23px;
+		font-size: 1em;
 	}
 	form input[type="submit"] {
 		width: 100%;
@@ -208,11 +209,29 @@ form input[type="submit"]:hover{
 		margin-right: 0;
 	}
 	.pelicula h3{
+		position: static;
 		display: block;
 		margin-bottom: 0;
 		font-size: 1em;
 	}
+	.pelicula h3,
 	.pelicula input{
-
+		color: #333;
+		font-size: 1.5em;
+		border: none;
+		width: 100%;
+		font-weight: normal;
+		display: none;
+	}
+	.pelicula .visible{
+		text-align: center;
+		margin-right: 60px;
+		left: 0;
+		top: 0;
+		position: static;
+		display: block;
+		color: #756bbd;
+		width: -webkit-fill-available;
+		padding-left: 58px;
 	}
 }
