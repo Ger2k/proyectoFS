@@ -210,6 +210,7 @@ form input[type="submit"]:hover{
 	.pelicula h3{
 		display: block;
 		margin-bottom: 0;
+		font-size: 1em;
 	}
 	.pelicula input{
 
