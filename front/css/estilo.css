@@ -81,10 +81,8 @@ form input[type="submit"]:hover{
 	border: 1px solid #a720ab7a;
 }
 .encabezado{
-	font-family: "MuseoModerno", sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 100;
-	font-style: normal;
+	font-family: "Kodchasan", sans-serif;
+	font-weight: 200;
 	font-style: italic;
     margin: 20px auto 40px;
     text-align: center;
@@ -128,7 +126,7 @@ form input[type="submit"]:hover{
 	align-items: center;
 	margin-bottom: 20px;
     background-color: rgb(38 42 149 / 25%);
-	backdrop-filter: blur(7px);
+	backdrop-filter: blur(0px);
     box-shadow: 0 .4rem .8rem #0005;
 }
 .pelicula h3{
@@ -149,7 +147,7 @@ form input[type="submit"]:hover{
 	background-color: rgba(245, 245, 245, 0.562);
 }
 .pelicula .visible{
-	margin-right: 60px;
+	margin: 15px 60px;
 	left: 37%;
     top: 20px;
     position: absolute;
