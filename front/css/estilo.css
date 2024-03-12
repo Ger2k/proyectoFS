@@ -97,7 +97,6 @@ form input[type="submit"]:hover{
     justify-content: center;
     background-color:rgb(17 0 17 / 0%);
     backdrop-filter: blur(0px);
-    box-shadow: 0 .4rem .8rem #0005;
     border-radius: .8rem;
 }
 .terminada{
@@ -118,7 +117,7 @@ form input[type="submit"]:hover{
 
 
 .pelicula{
-	background: radial-gradient(145% 98% at 4% 9%, black 56%, #5f008070 90%);
+	background: radial-gradient(145% 98% at 4% 12%, #020202 56%, #37008070 90%);
 	border-radius: 20px;
 	padding: 15px;
 	display: flex;	
