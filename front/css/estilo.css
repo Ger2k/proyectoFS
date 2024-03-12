@@ -126,7 +126,7 @@ form input[type="submit"]:hover{
 	align-items: center;
 	margin-bottom: 20px;
     background-color: rgb(38 42 149 / 25%);
-	backdrop-filter: blur(0px);
+	backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
 }
 .pelicula h3{
@@ -147,7 +147,7 @@ form input[type="submit"]:hover{
 	background-color: rgba(245, 245, 245, 0.562);
 }
 .pelicula .visible{
-	margin: 15px 60px;
+	margin-right: 60px;
 	left: 37%;
     top: 20px;
     position: absolute;
