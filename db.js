@@ -13,18 +13,20 @@ function conectar(){
 
 // Función para leer todas las películas en la colección "peliculas"
 
-function leerPeliculas(){
+function leerPeliculas() {
     return new Promise(async callback => {
         let conexion = await conectar();
 
         let coleccion = conexion.db("peliculas").collection("peliculas");
 
-        let peliculas = await coleccion.find({}).toArray();
+        // Añade el método sort para ordenar las películas por fechaCreacion en orden descendente
+        let peliculas = await coleccion.find({}).sort({fechaCreacion: -1}).toArray();
 
-        conexion.close()
+        conexion.close();
         callback(peliculas);
-    })
+    });
 }
+
 
 
 // Función para agregar una nueva película a la colección "peliculas"
