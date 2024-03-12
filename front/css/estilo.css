@@ -81,7 +81,10 @@ form input[type="submit"]:hover{
 	border: 1px solid #a720ab7a;
 }
 .encabezado{
-	font-family: Poppins;
+	font-family: "MuseoModerno", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 100;
+	font-style: normal;
 	font-style: italic;
     margin: 20px auto 40px;
     text-align: center;
@@ -95,8 +98,7 @@ form input[type="submit"]:hover{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color:rgb(17 0 17);
-    padding: 30px;
+    background-color:rgb(17 0 17 / 0%);
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
     border-radius: .8rem;
