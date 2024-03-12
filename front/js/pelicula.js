@@ -115,7 +115,7 @@ class Pelicula {
 		// La función debería manejar la promesa devuelta y reaccionar en consecuencia.
 		ajax(`/editar/${this.id}/0`, "PUT", { estado: this.estado })
 			.then(response => {
-				console.log(response);
+				//console.log(response);
 				// Manejar la respuesta del servidor aquí, si es necesario.
 			})
 			.catch(error => {
