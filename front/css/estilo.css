@@ -89,7 +89,7 @@ form input[type="submit"]:hover{
 }
 .listaPeliculas{
 	display: flex;
- 	flex-direction: column-reverse;
+ 	flex-direction: column;
 }
 .peliculas{
     display: flex;
