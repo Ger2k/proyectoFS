@@ -2,51 +2,56 @@ class Pelicula {
     constructor(id, titulo, estado, contenedor, fechaCreacion) {
         this.id = id;
         this.titulo = titulo;
-        this.fechaCreacion = fechaCreacion; // Asume que ahora también recibes fechaCreacion
+        this.fechaCreacion = fechaCreacion;
         this.estado = estado;
-        this.elementoDOM = this.crearEstructuraPelicula(contenedor); // Crear la estructura básica de inmediato
-        this.cargarPosterYCrearPelicula(); // Cargar el póster asincrónicamente
+        this.elementoDOM = this.crearEstructuraPelicula(contenedor);
+        this.cargarPosterYCrearPelicula();
     }
 
     crearEstructuraPelicula(contenedor) {
-		let elementoDOM = document.createElement("div");
-		elementoDOM.classList.add("pelicula");
-	
-		// El resto del código para crear titulo, movieYear, poster, y editorTitulo...
-	
-		// Crear botón para editar el título
-		let botonEditar = document.createElement("button");
-		botonEditar.classList.add("boton");
-		botonEditar.innerHTML = "Editar";
-		botonEditar.addEventListener("click", () => this.editarTitulo());
-	
-		// Crear botón para borrar la película
-		let botonBorrar = document.createElement("button");
-		botonBorrar.classList.add("boton", "borrar");
-		botonBorrar.innerHTML = "Borrar";
-		botonBorrar.addEventListener("click", () => this.borrarTitulo());
-	
-		// Crear botón para cambiar el estado de la película (vista/no vista)
-		let botonEstado = document.createElement("button");
-		botonEstado.className = `estado ${this.estado == "1" ? "terminada" : ""}`;
-		botonEstado.classList.add("boton", "vista");
-		botonEstado.innerHTML = "Vista";
-		botonEstado.addEventListener("click", () => this.editarEstado());
-	
-		// Añadir elementos al contenedor de la película
-		elementoDOM.appendChild(poster);
-		elementoDOM.appendChild(titulo);
-		elementoDOM.appendChild(movieYear);
-		elementoDOM.appendChild(editorTitulo);
-		elementoDOM.appendChild(botonEditar);
-		elementoDOM.appendChild(botonBorrar);
-		elementoDOM.appendChild(botonEstado);
-	
-		contenedor.appendChild(elementoDOM); // Añadir al contenedor general
-	
-		return elementoDOM; // Guardar referencia al contenedor de esta película
-	}
-	
+        let elementoDOM = document.createElement("div");
+        elementoDOM.classList.add("pelicula");
+
+        let titulo = document.createElement("h3");
+        titulo.classList.add("visible");
+        titulo.innerHTML = this.titulo;
+        elementoDOM.appendChild(titulo);
+
+        let movieYear = document.createElement("h4");
+        movieYear.classList.add("movieYear", "visible");
+        elementoDOM.appendChild(movieYear);
+
+        let poster = document.createElement("img");
+        poster.classList.add("poster");
+        elementoDOM.appendChild(poster);
+
+        let editorTitulo = document.createElement("input");
+        editorTitulo.setAttribute("type", "text");
+        editorTitulo.value = this.titulo;
+        editorTitulo.style.display = "none"; // Inicialmente oculto
+        elementoDOM.appendChild(editorTitulo);
+
+        let botonEditar = document.createElement("button");
+        botonEditar.classList.add("boton");
+        botonEditar.textContent = "Editar";
+        botonEditar.onclick = () => this.editarTitulo();
+        elementoDOM.appendChild(botonEditar);
+
+        let botonBorrar = document.createElement("button");
+        botonBorrar.classList.add("boton", "borrar");
+        botonBorrar.textContent = "Borrar";
+        botonBorrar.onclick = () => this.borrarTitulo();
+        elementoDOM.appendChild(botonBorrar);
+
+        let botonEstado = document.createElement("button");
+        botonEstado.classList.add("boton", "estado");
+        botonEstado.textContent = this.estado === "1" ? "Vista" : "No Vista";
+        botonEstado.onclick = () => this.editarEstado();
+        elementoDOM.appendChild(botonEstado);
+
+        contenedor.appendChild(elementoDOM);
+        return elementoDOM;
+    }
 
     async cargarPosterYCrearPelicula() {
         try {
