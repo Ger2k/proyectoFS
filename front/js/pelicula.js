@@ -105,10 +105,22 @@ class Pelicula {
 		console.log("no se pudo borrar");
 	}
 	
-	editarEstado(){
-        this.estado = this.estado === "1" ? "0" : "1";
-        this.elementoDOM.querySelector('.estado').classList.toggle("terminada");
-		// Realizar una llamada a AJAX para cambiar el estado de la película en el servidor
-		return ajax(`/editar/${this.id}/0`,"PUT")
+	editarEstado() {
+		// Alternar el estado local de la película.
+		this.estado = this.estado === "0" ? "1" : "0";
+		// Alternar la clase "terminada" para el botón visualmente.
+		this.elementoDOM.querySelector('.estado').classList.toggle("terminada");
+	
+		// Aquí suponemos que ajax es una función definida para manejar llamadas AJAX y actualizar el servidor.
+		// La función debería manejar la promesa devuelta y reaccionar en consecuencia.
+		ajax(`/editar/${this.id}/0`, "PUT", { estado: this.estado })
+			.then(response => {
+				console.log(response);
+				// Manejar la respuesta del servidor aquí, si es necesario.
+			})
+			.catch(error => {
+				console.error("Error al cambiar el estado: ", error);
+				// Posiblemente revertir el cambio de estado visual si la actualización del servidor falla.
+			});
 	}
 }
