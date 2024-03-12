@@ -30,24 +30,24 @@ class Pelicula {
         editorTitulo.value = this.titulo;
         editorTitulo.style.display = "none"; // Inicialmente oculto
         elementoDOM.appendChild(editorTitulo);
+		
+        let botonEstado = document.createElement("button");
+        botonEstado.classList.add("boton", "estado");
+        botonEstado.textContent = this.estado === "1" ? "Vista" : "No Vista";
+        botonEstado.onclick = () => this.editarEstado();
+        elementoDOM.appendChild(botonEstado);
 
         let botonEditar = document.createElement("button");
         botonEditar.classList.add("boton");
         botonEditar.textContent = "Editar";
         botonEditar.onclick = () => this.editarTitulo();
         elementoDOM.appendChild(botonEditar);
-
+		
         let botonBorrar = document.createElement("button");
         botonBorrar.classList.add("boton", "borrar");
         botonBorrar.textContent = "Borrar";
         botonBorrar.onclick = () => this.borrarTitulo();
         elementoDOM.appendChild(botonBorrar);
-
-        let botonEstado = document.createElement("button");
-        botonEstado.classList.add("boton", "estado");
-        botonEstado.textContent = this.estado === "1" ? "Vista" : "No Vista";
-        botonEstado.onclick = () => this.editarEstado();
-        elementoDOM.appendChild(botonEstado);
 
         contenedor.appendChild(elementoDOM);
         return elementoDOM;
