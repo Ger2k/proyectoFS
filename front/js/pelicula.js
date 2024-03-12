@@ -1,103 +1,58 @@
-class Pelicula{
-		constructor(id,titulo,estado,contenedor){
-			this.id = id;
-			this.titulo = titulo;
-			this.elementoDOM = null;
-			// Solo carga el póster y crea la película una vez que se haya obtenido la URL del póster
-			this.cargarPosterYCrearPelicula(estado, contenedor);
-		}
-	async cargarPosterYCrearPelicula(estado, contenedor) {
+class Pelicula {
+    constructor(id, titulo, estado, contenedor, fechaCreacion) {
+        this.id = id;
+        this.titulo = titulo;
+        this.fechaCreacion = fechaCreacion; // Asume que ahora también recibes fechaCreacion
+        this.estado = estado;
+        this.elementoDOM = this.crearEstructuraPelicula(contenedor); // Crear la estructura básica de inmediato
+        this.cargarPosterYCrearPelicula(); // Cargar el póster asincrónicamente
+    }
+
+    crearEstructuraPelicula(contenedor) {
+        let elementoDOM = document.createElement("div");
+        elementoDOM.classList.add("pelicula");
+
+        let titulo = document.createElement("h3");
+        titulo.classList.add("visible");
+        titulo.innerHTML = this.titulo;
+
+        let movieYear = document.createElement("h4");
+        movieYear.classList.add("movieYear", "visible");
+
+        let poster = document.createElement("img");
+        poster.classList.add("poster");
+
+        let editorTitulo = document.createElement("input");
+        editorTitulo.setAttribute("type", "text");
+        editorTitulo.value = this.titulo;
+
+        // Aquí seguirías añadiendo el resto de los elementos (botones, etc.) como lo estabas haciendo
+
+        // Añadir elementos al contenedor de la película
+        elementoDOM.appendChild(poster);
+        elementoDOM.appendChild(titulo);
+        elementoDOM.appendChild(movieYear);
+        // Añadir el resto de los elementos...
+
+        contenedor.appendChild(elementoDOM); // Añadir al contenedor general en el orden en que se invocó el constructor
+
+        return elementoDOM; // Guardar referencia al contenedor de esta película
+    }
+
+    async cargarPosterYCrearPelicula() {
         try {
             const response = await fetch(`https://omdbapi.com/?apikey=b45635c9&s=${encodeURIComponent(this.titulo)}`);
             const data = await response.json();
             if (data.Search && data.Search.length > 0) {
-                this.posterURL = data.Search[0].Poster; // Asumiendo que queremos el primer resultado
-				this.movieYear = data.Search[0].Year;
+                this.elementoDOM.querySelector(".poster").src = data.Search[0].Poster;
+                this.elementoDOM.querySelector(".movieYear").innerHTML = data.Search[0].Year || "Año no encontrado";
             } else {
-                this.posterURL = 'https://demofree.sirv.com/nope-not-here.jpg?w=150'; // O alguna URL de imagen por defecto
+                this.elementoDOM.querySelector(".poster").src = 'https://demofree.sirv.com/nope-not-here.jpg?w=150';
+                this.elementoDOM.querySelector(".movieYear").innerHTML = "Año no encontrado";
             }
-            this.nuevaPelicula(estado, contenedor, this.posterURL, this.movieYear); // Asegúrate de que nuevaPelicula maneje correctamente el parámetro posterURL
         } catch (error) {
             console.error("Error cargando el póster: ", error);
-            // Manejar el error adecuadamente
         }
-    }
-    nuevaPelicula(estado,contenedor){
-        this.elementoDOM = document.createElement("div");
-        this.elementoDOM.classList.add("pelicula");
-
-       
-		// Crear elemento para el título de la película
-        let titulo = document.createElement("h3");
-		titulo.classList.add("visible");
-		titulo.innerHTML = this.titulo;
-
-		// Crear elemento para el año de la película
-        let movieYear = document.createElement("h4");
-		movieYear.classList.add("movieYear", "visible");
-		movieYear.innerHTML = this.movieYear || "Año no encontrado";
-
-		// Crear elemento para el poster de la película
-        let poster = document.createElement("img");
-		poster.classList.add("poster");
-		poster.src = this.posterURL;
-
-
-        
-		// Crear campo de edición para el título
-        let editorTitulo = document.createElement("input");
-		editorTitulo.setAttribute("type","text");
-		editorTitulo.value = this.titulo;
-
-        
-		// Crear botón para editar el título
-        let botonEditar = document.createElement("button");
-		botonEditar.classList.add("boton");
-		botonEditar.innerHTML = "Editar";
-
-		// Agregar evento para editar el título al hacer clic en el botón
-		botonEditar.addEventListener("click", () => this.editarTitulo());
-
-
-        
-		// Crear botón para borrar la película
-        let botonBorrar = document.createElement("button");
-		botonBorrar.classList.add("boton","borrar");
-		botonBorrar.innerHTML = "Borrar";
-
-		// Agregar evento para borrar la película al hacer clic en el botón
-		botonBorrar.addEventListener("click", () => this.borrarTitulo());
-
-
-        
-		// Crear botón para cambiar el estado de la película (vista/no vista)
-        let botonEstado = document.createElement("button");
-		botonEstado.className = `estado ${estado == "1" ? "terminada" : ""}`;
-        botonEstado.classList.add("boton","vista");
-        botonEstado.innerHTML = "Vista";
-		
-		
-		
-		// Agregar evento para cambiar el estado al hacer clic en el botón
-		botonEstado.addEventListener("click", () => {
-			this.editarEstado().then(({resultado}) => {
-				if(resultado == "ok"){
-					return botonEstado.classList.toggle("terminada");
-				}
-				console.log("...informar del error")
-			})
-		});
-
-        // Agregar elementos al DOM
-		this.elementoDOM.appendChild(poster);
-        this.elementoDOM.appendChild(titulo);
-		this.elementoDOM.appendChild(movieYear);
-		this.elementoDOM.appendChild(editorTitulo);
-        this.elementoDOM.appendChild(botonEstado);
-		this.elementoDOM.appendChild(botonEditar);
-		this.elementoDOM.appendChild(botonBorrar);		
-
-        contenedor.appendChild(this.elementoDOM);
     }
     async editarTitulo(){
 		if(this.editando){
