@@ -109,7 +109,7 @@ class Pelicula {
 		// Alternar el estado local de la película.
 		this.estado = this.estado === "0" ? "1" : "0";
 		// Alternar la clase "terminada" para el botón visualmente.
-		this.elementoDOM.querySelector('.estado').classList.toggle("terminada");
+		this.elementoDOM.querySelector('.vista').classList.toggle("terminada");
 	
 		// Aquí suponemos que ajax es una función definida para manejar llamadas AJAX y actualizar el servidor.
 		// La función debería manejar la promesa devuelta y reaccionar en consecuencia.
