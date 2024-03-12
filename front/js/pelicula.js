@@ -31,10 +31,9 @@ class Pelicula {
         elementoDOM.appendChild(editorTitulo);
 		
         let botonEstado = document.createElement("button");
-        botonEstado.classList.add("boton", "estado", this.estado === "1" ? "terminada" : "");
-        botonEstado.textContent = "Vista";
-        botonEstado.onclick = () => this.editarEstado();
-        elementoDOM.appendChild(botonEstado);
+		botonEstado.className = `estado ${estado == "1" ? "terminada" : ""}`;
+        botonEstado.classList.add("boton","vista");
+        botonEstado.innerHTML = "Vista";
 
         let botonEditar = document.createElement("button");
         botonEditar.classList.add("boton");
