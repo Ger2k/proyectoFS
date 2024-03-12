@@ -257,4 +257,10 @@ form input[type="submit"]:hover{
 		color: #756bbd;
 		width: -webkit-fill-available;
 	}
+	.movieYear{
+		margin-bottom: -6px;
+		left: 41%;
+		top: -25px;
+		position: relative;
+	}
 }
