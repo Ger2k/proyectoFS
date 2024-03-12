@@ -28,12 +28,11 @@ class Pelicula {
         let editorTitulo = document.createElement("input");
         editorTitulo.setAttribute("type", "text");
         editorTitulo.value = this.titulo;
-        editorTitulo.style.display = "none"; // Inicialmente oculto
         elementoDOM.appendChild(editorTitulo);
 		
         let botonEstado = document.createElement("button");
-        botonEstado.classList.add("boton", "estado");
-        botonEstado.textContent = this.estado === "1" ? "Vista" : "No Vista";
+        botonEstado.classList.add("boton", "estado", this.estado === "1" ? "terminada" : "");
+        botonEstado.textContent = "Vista";
         botonEstado.onclick = () => this.editarEstado();
         elementoDOM.appendChild(botonEstado);
 
