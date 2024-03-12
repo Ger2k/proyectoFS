@@ -19,7 +19,7 @@ class Pelicula {
         elementoDOM.appendChild(titulo);
 
         let movieYear = document.createElement("h4");
-        movieYear.classList.add("movieYear", "visible");
+        movieYear.classList.add("movieYear");
         elementoDOM.appendChild(movieYear);
 
         let poster = document.createElement("img");
@@ -27,6 +27,7 @@ class Pelicula {
         elementoDOM.appendChild(poster);
 
         let editorTitulo = document.createElement("input");
+        editorTitulo.classList.add("editorTitulo");
         editorTitulo.setAttribute("type", "text");
         editorTitulo.value = this.titulo;
         elementoDOM.appendChild(editorTitulo);

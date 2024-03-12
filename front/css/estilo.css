@@ -80,6 +80,9 @@ form input[type="submit"]:hover{
 	background-color: #a720ab7a;
 	border: 1px solid #a720ab7a;
 }
+.editorTitulo{
+	width: -webkit-fill-available;
+}
 .encabezado{
 	font-family: "Kodchasan", sans-serif;
 	font-weight: 200;
@@ -113,6 +116,12 @@ form input[type="submit"]:hover{
 	margin-top: 38px;
 	font-style: italic;
 	margin-bottom: 16px;
+	left: 37%;
+    top: 20px;
+    position: absolute;
+	display: block;
+	color: #756bbd;
+	width: auto;
 }
 
 
