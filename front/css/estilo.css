@@ -82,6 +82,7 @@ form input[type="submit"]:hover{
 }
 .editorTitulo{
 	width: -webkit-fill-available;
+	margin-right: 30px;
 }
 .encabezado{
 	font-family: "Kodchasan", sans-serif;
