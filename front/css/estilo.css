@@ -229,7 +229,7 @@ form input[type="submit"]:hover{
 	.poster{
 		max-width: 75%;
 		margin-right: 0;
-		margin-top: 42px;
+		margin-top: 92px;
 	}
 	.pelicula h3{
 		position: static;
@@ -263,5 +263,9 @@ form input[type="submit"]:hover{
 		left: 43%;
 		top: 28px;
 		position: absolute;
+	}
+	.pelicula .editorTitulo{
+		position: absolute;
+
 	}
 }
