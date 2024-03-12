@@ -79,14 +79,14 @@ class Pelicula {
 				}               
 			}
 			// Actualizar la representación del título en el DOM
-			this.elementoDOM.children[1].innerHTML = this.titulo; // Uso correcto de this.titulo
-			this.elementoDOM.children[1].classList.add("visible");
+			this.elementoDOM.children[0].innerHTML = this.titulo; // Uso correcto de this.titulo
+			this.elementoDOM.children[0].classList.add("visible");
 			this.elementoDOM.children[3].classList.remove("visible"); // Ocultar el input
 			this.elementoDOM.children[5].innerHTML = "Editar";
 	
 		}else{
 			// Habilitar la edición del título
-			this.elementoDOM.children[1].classList.remove("visible"); // Ocultar el h3 del título
+			this.elementoDOM.children[0].classList.remove("visible"); // Ocultar el h3 del título
 			this.elementoDOM.children[3].value = this.titulo; // Asegurar que el valor del input se establezca correctamente con this.titulo
 			this.elementoDOM.children[3].classList.add("visible"); // Mostrar el input
 			this.elementoDOM.children[5].innerHTML = "Guardar";
