@@ -182,7 +182,7 @@ form input[type="submit"]:hover{
 	background-color: #96f76a;
 	border: 1px solid #48a81b;
 }
-.editorTitulo{
+.pelicula .editorTitulo{
 	width: -webkit-fill-available;
 	margin-right: 30px;
 	color: #2407eb;
