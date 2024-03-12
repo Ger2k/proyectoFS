@@ -4,6 +4,7 @@ class Pelicula {
         this.titulo = titulo;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
+        this.editando = false;
         this.elementoDOM = this.crearEstructuraPelicula(contenedor);
         this.cargarPosterYCrearPelicula();
     }
@@ -29,22 +30,23 @@ class Pelicula {
         editorTitulo.setAttribute("type", "text");
         editorTitulo.value = this.titulo;
         elementoDOM.appendChild(editorTitulo);
-		
+        
         let botonEstado = document.createElement("button");
-		botonEstado.className = `estado ${estado == "1" ? "terminada" : ""}`;
-        botonEstado.classList.add("boton","vista");
-        botonEstado.innerHTML = "Vista";
+        botonEstado.className = `boton vista ${this.estado == "1" ? "terminada" : ""}`;
+        botonEstado.textContent = "Vista";
+        botonEstado.addEventListener("click", () => this.editarEstado());
+        elementoDOM.appendChild(botonEstado);
 
         let botonEditar = document.createElement("button");
         botonEditar.classList.add("boton");
         botonEditar.textContent = "Editar";
-        botonEditar.onclick = () => this.editarTitulo();
+        botonEditar.addEventListener("click", () => this.editarTitulo());
         elementoDOM.appendChild(botonEditar);
-		
+        
         let botonBorrar = document.createElement("button");
         botonBorrar.classList.add("boton", "borrar");
         botonBorrar.textContent = "Borrar";
-        botonBorrar.onclick = () => this.borrarTitulo();
+        botonBorrar.addEventListener("click", () => this.borrarTitulo());
         elementoDOM.appendChild(botonBorrar);
 
         contenedor.appendChild(elementoDOM);
@@ -104,6 +106,8 @@ class Pelicula {
 	}
 	
 	editarEstado(){
+        this.estado = this.estado === "1" ? "0" : "1";
+        this.elementoDOM.querySelector('.estado').classList.toggle("terminada");
 		// Realizar una llamada a AJAX para cambiar el estado de la película en el servidor
 		return ajax(`/editar/${this.id}/0`,"PUT")
 	}
