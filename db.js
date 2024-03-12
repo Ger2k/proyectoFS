@@ -36,18 +36,25 @@ function nuevaPelicula(titulo){
         .then(async conexion => {
             let resultado = { resultado : "ko"}
             let coleccion = conexion.db("peliculas").collection("peliculas");
-            let {acknowledged,insertedId} = await coleccion.insertOne({ "titulo" : titulo , "terminada" : "0"});
+            let fechaCreacion = new Date(); // Obtener la fecha y hora actual
+            let {acknowledged, insertedId} = await coleccion.insertOne({
+                "titulo": titulo,
+                "terminada": "0",
+                "fechaCreacion": fechaCreacion // Añadir la fecha de creación al documento
+            });
             if(acknowledged){
                 resultado.resultado = "ok";
                 resultado.id = insertedId;
-                callback(resultado)
+                resultado.fechaCreacion = fechaCreacion; // Opcionalmente, puedes devolver también la fecha de creación
+                callback(resultado);
             }else{
-                callback(resultado)
+                callback(resultado);
             }
-            conexion.close()
-        })
-    })
+            conexion.close();
+        });
+    });
 }
+
 
 
 // Función para borrar una película por su ID
