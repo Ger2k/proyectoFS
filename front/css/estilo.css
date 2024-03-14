@@ -213,7 +213,7 @@ form input[type="submit"]:hover{
 	}
 	.boton:hover{
 		border: 1px solid #333;
-		background-color: rgba(245, 245, 245, 0.562);
+		background-color: rgb(227 166 253);
 	}	
 	.pelicula{
 		flex-wrap: wrap;
