@@ -16,7 +16,7 @@ document.getElementById('ordenarPorFecha').addEventListener('click', () => {
 });
 
 function renderizarPeliculas() {
-    const contenedor = document.getElementById('tuContenedorDePeliculas'); // Cambia este ID por donde quieras renderizar tus películas
+    const contenedor = document.getElementById('listaPeliculas'); // Cambia este ID por donde quieras renderizar tus películas
     contenedor.innerHTML = ''; // Limpiar el contenedor antes de renderizar de nuevo
     peliculas.forEach(pelicula => {
         // Aquí iría tu lógica para crear y añadir cada película al DOM basado en el objeto de película
