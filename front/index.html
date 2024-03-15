@@ -27,14 +27,17 @@
     <main class="peliculas">
 
         <header class="encabezado">
-            <h1>Mi colección de películas</h1>          
+            <h1>Mi colección de películas</h1>  
+            <button id="ordenarAlfabeticamente">Ordenar Alfabéticamente</button>
+            <button id="ordenarPorAno">Ordenar por Año</button>
+            <button id="ordenarPorFecha">Ordenar por Fecha Añadida</button>        
         </header>
-
+        
         <div class="listaPeliculas">
-           <div class="pelicula">
+           <!--<div class="pelicula">
                <img src="https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" class="poster">               
                    <h3 class="visible">Avengers</h3>
-                   <h4 class="movieYear visible">1984</h4>
+                   <h4 class="movieYear visible">1995</h4>
                    <input type="text">
                    <button class="estado terminada boton vista"><span></span>Vista</button>
                    <button class="boton editar">Editar</button>
@@ -43,7 +46,7 @@
             
         </div>
 
-
+    <script src="js/ordenarPeliculas.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/pelicula.js"></script>
     <script src="js/funciones.js"></script>

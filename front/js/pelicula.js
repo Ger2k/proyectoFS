@@ -60,7 +60,7 @@ class Pelicula {
             const data = await response.json();
             if (data.Search && data.Search.length > 0) {
                 this.elementoDOM.querySelector(".poster").src = data.Search[0].Poster;
-                this.elementoDOM.querySelector(".movieYear").innerHTML = data.Search[0].Year || "Año no encontrado";
+                this.elementoDOM.querySelector(".movieYear").innerHTML = data.Search[0].Year || "Película no encontrada";
             } else {
                 this.elementoDOM.querySelector(".poster").src = 'https://demofree.sirv.com/nope-not-here.jpg?w=150';
                 this.elementoDOM.querySelector(".movieYear").innerHTML = "Año no encontrado";
