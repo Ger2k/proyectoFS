@@ -39,7 +39,7 @@ class Pelicula {
         elementoDOM.appendChild(botonEstado);
 
         let botonEditar = document.createElement("button");
-        botonEditar.classList.add("boton");
+        botonEditar.classList.add("boton", "editar");
         botonEditar.textContent = "Editar";
         botonEditar.addEventListener("click", () => this.editarTitulo());
         elementoDOM.appendChild(botonEditar);

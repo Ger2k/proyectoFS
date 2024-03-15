@@ -19,4 +19,14 @@ formulario.addEventListener("submit", e => {
 	console.log("El campo no puede estar vacío")
 })
 
+//Eliminar el placeholder del formulario al empezar a escribir
 
+textoTitulo.addEventListener('focus', function() {
+    this.placeholder = ''; // Limpia el placeholder al enfocar
+});
+
+textoTitulo.addEventListener('blur', function() {
+    if (this.value === '') {
+        this.placeholder = 'Título'; // Restaura el placeholder si el input está vacío al perder el foco
+    }
+});

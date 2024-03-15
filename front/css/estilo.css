@@ -172,8 +172,8 @@ form input[type="submit"]:hover{
 	backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #55555554;
 }
-.boton:hover{
-	background-color: rgb(247 213 183);
+.editar:hover{
+	background-color: rgb(236 87 241);
 }
 .borrar:hover{
 	background-color: rgb(255 84 84);
@@ -210,11 +210,11 @@ form input[type="submit"]:hover{
 	}
 	h1{
 		font-size: 1.7em;
-	}
-	.boton:hover{
+	}/*
+	.editar:hover{
 		border: 1px solid #333;
 		background-color: rgb(227 166 253);
-	}	
+	}	*/
 	.pelicula{
 		flex-wrap: wrap;
 	}
