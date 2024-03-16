@@ -74,30 +74,30 @@ class Pelicula {
         }
     }
     async editarTitulo(){
-		if(this.editando){
-			// Guardar el título editado
-			let tituloTemporal = this.elementoDOM.children[3].value.trim(); // Acceso correcto al input
-			if(tituloTemporal != "" && tituloTemporal != this.titulo){ // Uso de this.titulo
-				let {resultado} = await ajax(`/editar/${this.id}/1`,"PUT",{ titulo : tituloTemporal})
-				if(resultado == "ok"){
-					this.titulo = tituloTemporal; // Actualización correcta de this.titulo
-				}               
-			}
-			// Actualizar la representación del título en el DOM
-			this.elementoDOM.children[0].innerHTML = this.titulo; // Uso correcto de this.titulo
-			this.elementoDOM.children[0].classList.add("visible");
-			this.elementoDOM.children[3].classList.remove("visible"); // Ocultar el input
-			this.elementoDOM.children[5].innerHTML = "Editar";
-	
-		}else{
-			// Habilitar la edición del título
-			this.elementoDOM.children[0].classList.remove("visible"); // Ocultar el h3 del título
-			this.elementoDOM.children[3].value = this.titulo; // Asegurar que el valor del input se establezca correctamente con this.titulo
-			this.elementoDOM.children[3].classList.add("visible"); // Mostrar el input
-			this.elementoDOM.children[5].innerHTML = "Guardar";
-		}
-		this.editando = !this.editando;
-	}
+        if(this.editando){
+            // Guardar el título editado
+            let tituloTemporal = this.elementoDOM.children[2].value.trim(); // Ahora el input es children[2]
+            if(tituloTemporal != "" && tituloTemporal != this.titulo){
+                let {resultado} = await ajax(`/editar/${this.id}/1`,"PUT",{ titulo : tituloTemporal})
+                if(resultado == "ok"){
+                    this.titulo = tituloTemporal;
+                }               
+            }
+            // Actualizar la representación del título en el DOM
+            this.elementoDOM.children[1].innerHTML = this.titulo; // El h3 del título es ahora children[1]
+            this.elementoDOM.children[1].classList.add("visible");
+            this.elementoDOM.children[2].classList.remove("visible"); // Ocultar el input, que es ahora children[2]
+            this.elementoDOM.querySelector(".boton.editar").textContent = "Editar"; // Usar querySelector para encontrar el botón editar
+    
+        }else{
+            // Habilitar la edición del título
+            this.elementoDOM.children[1].classList.remove("visible"); // Ocultar el h3 del título, que es ahora children[1]
+            this.elementoDOM.children[2].value = this.titulo; // El input es ahora children[2]
+            this.elementoDOM.children[2].classList.add("visible"); // Mostrar el input, que es ahora children[2]
+            this.elementoDOM.querySelector(".boton.editar").textContent = "Guardar"; // Usar querySelector para encontrar el botón editar
+        }
+        this.editando = !this.editando;
+    }
 	
 	
 	async borrarTitulo(){
