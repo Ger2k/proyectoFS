@@ -53,6 +53,7 @@ class Pelicula {
         botonBorrar.addEventListener("click", () => this.borrarTitulo());
         seccionBotones.appendChild(botonBorrar);
 
+        elementoDOM.appendChild(seccionBotones);
         contenedor.appendChild(elementoDOM);
         return elementoDOM;
     }
