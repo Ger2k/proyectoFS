@@ -31,24 +31,27 @@ class Pelicula {
         editorTitulo.setAttribute("type", "text");
         editorTitulo.value = this.titulo;
         elementoDOM.appendChild(editorTitulo);
+
+        let nav = document.createElement("section");
+        nav.classList.add("contenedor-botones");
         
         let botonEstado = document.createElement("button");
         botonEstado.className = `boton vista ${this.estado == "1" ? "terminada" : ""}`;
         botonEstado.textContent = "Vista";
         botonEstado.addEventListener("click", () => this.editarEstado());
-        elementoDOM.appendChild(botonEstado);
+        section.appendChild(botonEstado);
 
         let botonEditar = document.createElement("button");
         botonEditar.classList.add("boton", "editar");
         botonEditar.textContent = "Editar";
         botonEditar.addEventListener("click", () => this.editarTitulo());
-        elementoDOM.appendChild(botonEditar);
+        section.appendChild(botonEditar);
         
         let botonBorrar = document.createElement("button");
         botonBorrar.classList.add("boton", "borrar");
         botonBorrar.textContent = "Borrar";
         botonBorrar.addEventListener("click", () => this.borrarTitulo());
-        elementoDOM.appendChild(botonBorrar);
+        section.appendChild(botonBorrar);
 
         contenedor.appendChild(elementoDOM);
         return elementoDOM;
