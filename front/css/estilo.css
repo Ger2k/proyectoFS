@@ -267,8 +267,6 @@ form input[type="submit"]:hover{
 		position: static;
 		margin-top: 0;
 		text-align: center;
-	}
-	.pelicula .editorTitulo{
-		position: absolute;
+		width: 100%;
 	}
 }
