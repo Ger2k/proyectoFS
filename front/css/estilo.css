@@ -223,7 +223,6 @@ form input[type="submit"]:hover{
 	}
 	.pelicula .boton{
 		width: -webkit-fill-available;
-		width: 75px;
 		margin-top: 20px;
 	}
 	.peliculas{
