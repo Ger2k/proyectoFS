@@ -32,26 +32,26 @@ class Pelicula {
         editorTitulo.value = this.titulo;
         elementoDOM.appendChild(editorTitulo);
 
-        let nav = document.createElement("section");
-        nav.classList.add("contenedor-botones");
+        let seccionBotones = document.createElement("section");
+        seccionBotones.classList.add("contenedor-botones");
         
         let botonEstado = document.createElement("button");
         botonEstado.className = `boton vista ${this.estado == "1" ? "terminada" : ""}`;
         botonEstado.textContent = "Vista";
         botonEstado.addEventListener("click", () => this.editarEstado());
-        section.appendChild(botonEstado);
+        seccionBotones.appendChild(botonEstado);
 
         let botonEditar = document.createElement("button");
         botonEditar.classList.add("boton", "editar");
         botonEditar.textContent = "Editar";
         botonEditar.addEventListener("click", () => this.editarTitulo());
-        section.appendChild(botonEditar);
+        seccionBotones.appendChild(botonEditar);
         
         let botonBorrar = document.createElement("button");
         botonBorrar.classList.add("boton", "borrar");
         botonBorrar.textContent = "Borrar";
         botonBorrar.addEventListener("click", () => this.borrarTitulo());
-        section.appendChild(botonBorrar);
+        seccionBotones.appendChild(botonBorrar);
 
         contenedor.appendChild(elementoDOM);
         return elementoDOM;
