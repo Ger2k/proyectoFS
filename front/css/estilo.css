@@ -201,7 +201,7 @@ form input[type="submit"]:hover{
 /*responsive*/
 
 
-@media (max-width: 568px) {
+@media (max-width: 733px) {
 	
 	form input[type="text"] {
 		width: 100%; 
