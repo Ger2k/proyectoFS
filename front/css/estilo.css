@@ -220,6 +220,7 @@ form input[type="submit"]:hover{
 	}	*/
 	.pelicula{
 		flex-wrap: wrap;
+		background: rgb(38 42 149 / 25%);
 	}
 	.pelicula .boton{
 		width: -webkit-fill-available;
