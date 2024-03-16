@@ -120,7 +120,6 @@ class Pelicula {
 		// La función debería manejar la promesa devuelta y reaccionar en consecuencia.
 		await ajax(`/editar/${this.id}/0`, "PUT", { estado: this.estado })
         .then(response => {
-            console.log(response);
             if(response.resultado == "ok"){
                 this.estado = this.estado === "0" ? "1" : "0";
                 this.elementoDOM.querySelector('.vista').classList.toggle("terminada");
