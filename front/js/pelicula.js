@@ -118,10 +118,10 @@ class Pelicula {
 	
 		// Aquí suponemos que ajax es una función definida para manejar llamadas AJAX y actualizar el servidor.
 		// La función debería manejar la promesa devuelta y reaccionar en consecuencia.
-		let {resultado} = await ajax(`/editar/${this.id}/0`, "PUT", { estado: this.estado })
+		await ajax(`/editar/${this.id}/0`, "PUT", { estado: this.estado })
         .then(response => {
             console.log(response);
-            if(resultado == "ok"){
+            if(response.resultado == "ok"){
                 this.estado = this.estado === "0" ? "1" : "0";
                 this.elementoDOM.querySelector('.vista').classList.toggle("terminada");
             }
