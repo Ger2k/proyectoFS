@@ -12,35 +12,35 @@ class Pelicula {
     crearEstructuraPelicula(contenedor) {
         let elementoDOM = document.createElement("div");
         elementoDOM.classList.add("pelicula");
-
+    
+        let poster = document.createElement("img");
+        poster.classList.add("poster");
+        elementoDOM.appendChild(poster);
+    
         let titulo = document.createElement("h3");
         titulo.classList.add("visible");
         titulo.innerHTML = this.titulo;
         elementoDOM.appendChild(titulo);
-
-        let movieYear = document.createElement("h4");
-        movieYear.classList.add("movieYear");
-        elementoDOM.appendChild(movieYear);
-
-        let poster = document.createElement("img");
-        poster.classList.add("poster");
-        elementoDOM.appendChild(poster);
-
+    
         let editorTitulo = document.createElement("input");
         editorTitulo.classList.add("editorTitulo");
         editorTitulo.setAttribute("type", "text");
         editorTitulo.value = this.titulo;
         elementoDOM.appendChild(editorTitulo);
-
+    
+        let movieYear = document.createElement("h4");
+        movieYear.classList.add("movieYear");
+        elementoDOM.appendChild(movieYear);
+    
         let seccionBotones = document.createElement("section");
         seccionBotones.classList.add("contenedor-botones");
-        
+    
         let botonEstado = document.createElement("button");
         botonEstado.className = `boton vista ${this.estado == "1" ? "terminada" : ""}`;
         botonEstado.textContent = "Vista";
         botonEstado.addEventListener("click", () => this.editarEstado());
         seccionBotones.appendChild(botonEstado);
-
+    
         let botonEditar = document.createElement("button");
         botonEditar.classList.add("boton", "editar");
         botonEditar.textContent = "Editar";
@@ -52,7 +52,7 @@ class Pelicula {
         botonBorrar.textContent = "Borrar";
         botonBorrar.addEventListener("click", () => this.borrarTitulo());
         seccionBotones.appendChild(botonBorrar);
-
+    
         elementoDOM.appendChild(seccionBotones);
         contenedor.appendChild(elementoDOM);
         return elementoDOM;

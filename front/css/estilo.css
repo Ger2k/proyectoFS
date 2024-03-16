@@ -106,7 +106,6 @@ form input[type="submit"]:hover{
 	max-width: 20%;
     height: auto;
 	border-radius: 15px;
-	margin-right: 50px;
 	box-shadow: 15px 0rem 0.8rem #0005;
 }
 .movieYear{
@@ -194,6 +193,10 @@ form input[type="submit"]:hover{
 .pelicula button:not(:last-child){
 	margin-right: 20px;
 }*/
+.contenedor-botones{
+	display: flex;
+    gap: 20px;
+}
 
 /*responsive*/
 
@@ -229,7 +232,6 @@ form input[type="submit"]:hover{
 	.poster{
 		max-width: 75%;
 		margin-right: 0;
-		margin-top: 92px;
 	}
 	.pelicula h3{
 		position: static;
@@ -266,6 +268,5 @@ form input[type="submit"]:hover{
 	}
 	.pelicula .editorTitulo{
 		position: absolute;
-
 	}
 }
