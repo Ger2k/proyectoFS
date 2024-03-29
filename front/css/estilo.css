@@ -43,7 +43,7 @@ body{
 	z-index: 0;
 }
 h1{
-	text-shadow: 0px 6px 1rem #b53ab591;
+	/*text-shadow: 0px 6px 1rem #b53ab591;*/
 	font-size: 2em;
 }
 input,button{
@@ -86,6 +86,7 @@ form input[type="submit"]:hover{
     margin: 20px auto 40px;
     text-align: center;
 	color: rgb(181 58 181);
+	animation: sombraNeon 3s infinite;
 }
 .listaPeliculas{
 	display: flex;
@@ -105,7 +106,7 @@ form input[type="submit"]:hover{
 .poster{
 	max-width: 20%;
     height: auto;
-	border-radius: 15px;
+	border-radius: 5px;
 	box-shadow: 15px 0rem 0.8rem #0005;
 }
 .movieYear{
@@ -271,3 +272,16 @@ form input[type="submit"]:hover{
 		margin-left: 9px;
 	}
 }
+/* ANIMACIONES */
+
+/* @keyframes sombraNeon{
+	45%{
+		text-shadow: 3px 3px 2px #f6048c;
+	}
+	50%{
+		text-shadow: 3px 3px 10px #790044;
+	}
+	55%{
+		text-shadow: 3px 3px 2px #f6048c;
+	}
+} */
