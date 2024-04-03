@@ -150,4 +150,4 @@ async function mantenerActivaDB() {
 
 // Establecer un intervalo para mantener la base de datos activa
 // 300000 ms equivalen a 5 minutos
-setInterval(mantenerActivaDB, 10000);
+setInterval(mantenerActivaDB, 300000);
