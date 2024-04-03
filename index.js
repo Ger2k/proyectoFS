@@ -4,7 +4,6 @@ const express = require("express");
 const {json} = require("body-parser");
 const servidor = express();
 const bodyParser = require("body-parser");
-const fetch = require('node-fetch');
 
 
 // Importación de las funciones del archivo db.js
