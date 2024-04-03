@@ -134,3 +134,24 @@ function editarTitulo(id,nuevoTitulo){
 // Exportar las funciones que se utilizarán en otros archivos
 
 module.exports = {nuevaPelicula,borrar,leerPeliculas,editarEstado,editarTitulo}
+
+// Función trivial que consulta una colección para mantener activa la base de datos
+function mantenerActivaDB() {
+    conectar().then(conexion => {
+        const coleccion = conexion.db("peliculas").collection("peliculas");
+        // Realizar una consulta trivial, como contar los documentos
+        coleccion.countDocuments()
+            .then(count => {
+                console.log(`Hay ${count} películas. DB activa.`);
+                conexion.close();
+            })
+            .catch(err => {
+                console.error("Error manteniendo la DB activa:", err);
+                conexion.close();
+            });
+    });
+}
+
+// Establecer un intervalo para mantener la base de datos activa
+// 300000 ms equivalen a 5 minutos
+setInterval(mantenerActivaDB, 300000);

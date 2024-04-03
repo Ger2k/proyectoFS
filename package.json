@@ -8,7 +8,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines" : {
+  "engines": {
     "node": ">=18 <19"
   },
   "dependencies": {
